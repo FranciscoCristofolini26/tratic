@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+  </style>
+</head>
+<body>
+  <h1>Math Challenge</h1>
+  <div id="question"></div>
+  <input type="text" id="answer">
+  <button onclick="startGame()">Start</button>
+  <button onclick="checkAnswer()">Submit</button>
+  <div id="result"></div>
+
+  <script>
+    var currentQuestionIndex = 0;
+    var score = 0;
+    var timeLimit = 60; // seconds
+    var timer;
+
+    function startGame() {
+      document.getElementById("answer").disabled = false;
+      generateQuestion();
+      startTimer();
+      document.getElementById("result").textContent = "";
+      document.getElementById("answer").value = "";
+    }
+
+    function generateQuestion() {
+      var operators = ['+', '-', '*', '/'];
+      var operator = operators[Math.floor(Math.random() * operators.length)];
+      var num1 = Math.floor(Math.random() * 10) + 1;
+      var num2 = Math.floor(Math.random() * 10) + 1;
+
+      var questionElement = document.getElementById("question");
+
+      switch (operator) {
+        case '+':
+          questionElement.textContent = num1 + " + " + num2;
+          questions[currentQuestionIndex] = {question: questionElement.textContent, answer: (num1 + num2).toString()};
+          break;
+        case '-':
+          questionElement.textContent = num1 + " - " + num2;
+          questions[currentQuestionIndex] = {question: questionElement.textContent, answer: (num1 - num2).toString()};
+          break;
+        case '*':
+          questionElement.textContent = num1 + " * " + num2;
+          questions[currentQuestionIndex] = {question: questionElement.textContent, answer: (num1 * num2).toString()};
+          break;
+        case '/':
+          questionElement.textContent = num1 * num2 + " / " + num2;
+          questions[currentQuestionIndex] = {question: questionElement.textContent, answer: num1.toString()};
+          break;
+      }
+    }
+
+    function checkAnswer() {
+      var answerElement = document.getElementById("answer");
+      var userAnswer = answerElement.value;
+
+      if (userAnswer === questions[currentQuestionIndex].answer) {
+        score++;
+        document.getElementById("result").textContent = "Correct!";
+      } else {
+        document.getElementById("result").textContent = "Wrong!";
+      }
+
+      currentQuestionIndex++;
+      answerElement.value = "";
+
+      if (currentQuestionIndex === questions.length) {
+        endGame();
+      } else {
+        generateQuestion();
+      }
+    }
+
+    function startTimer() {
+      var timeLeft = timeLimit;
+      var timerElement = document.getElementById("timer");
+      timerElement.textContent = timeLeft;
+
+      timer = setInterval(function() {
+        timeLeft--;
+        timerElement.textContent = timeLeft;
+
+        if (timeLeft === 0) {
+          endGame();
+        }
+      }, 1000);
+    }
+
+    function endGame() {
+      clearInterval(timer);
+      document.getElementById("question").textContent = "Game Over!";
+      document.getElementById("result").textContent = "Your score: " + score;
+      document.getElementById("answer").disabled = true;
+    }
+
+    var questions = new Array(5);
+  </script>
+</body>
