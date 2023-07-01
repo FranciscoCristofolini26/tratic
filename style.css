@@ -15,6 +15,10 @@
     animation: mover 3s infinite;
   }
 
+html{
+    overflow-y:hidden;
+    overflow-x:hidden;
+    }
 body {
     background: linear-gradient(to bottom, white, rgb(0, 132, 255)) no-repeat;
     background-size: cover;
@@ -22,9 +26,19 @@ body {
     width: 100vw;
 }
 
+input#answer {
+    margin: auto;
+    display: block;
+    height: 90px;
+    width: 304px;
+    border: 2px black solid;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 40px;
+}
+
 h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 100px;
     font-family: 'Luckiest Guy', cursive;
     color: rgb(0, 0, 0);
     
@@ -33,14 +47,14 @@ h1 {
 div#question {
     color: black;
     font-family: 'Luckiest Guy', cursive;
-    font-size: 30px;
+    font-size: 60px;
     text-align: center;
 }
 
 div#result {
     color: black;
     font-family: 'Luckiest Guy', cursive;
-    font-size: 30px;
+    font-size: 60px;
     text-align: center;
 }
 
@@ -48,7 +62,7 @@ div#result {
 #question {
     font-family: 'Luckiest Guy', cursive;
     color: black;
-    font-size: 20px;
+    font-size: 60px;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -58,4 +72,34 @@ div#result {
     color: black;
     margin-top: 10px;
     text-align: center;
+}
+
+button#isubmit {
+    text-align: center;
+    margin: auto;
+    display: block; 
+    height: 90px;
+    width: 312px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 30px;
+}
+
+button#istart {
+    text-align: center;
+    margin: auto;
+    display: block;
+    height: 90px;
+    width: 312px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 30px;
+}
+
+button#irestart {
+    text-align: center;
+    margin: auto;
+    display: block;
+    height: 90px;
+    width: 312px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 30px;
 }
