@@ -1,3 +1,20 @@
+@charset "UTF-8";
+
+@keyframes mover {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: 200px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  .caixa {
+    animation: mover 3s infinite;
+  }
+
 body {
     background: linear-gradient(to bottom, white, rgb(0, 132, 255)) no-repeat;
     background-size: cover;
@@ -10,6 +27,7 @@ h1 {
     font-size: 50px;
     font-family: 'Luckiest Guy', cursive;
     color: rgb(0, 0, 0);
+    
 }
 
 div#question {
